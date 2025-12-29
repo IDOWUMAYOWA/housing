@@ -2,12 +2,21 @@ import pickle
 from flask import Flask, request, jsonify,app,url_for,render_template
 import numpy as np
 import pandas as pd
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 app = Flask(__name__)
 
 # Load the model
-reg_model = pickle.load(open('/linear_regression_model.pkl', 'rb'))
-scaler = pickle.load(open('/scaler.pkl', 'rb'))
+reg_model = pickle.load(
+    open(os.path.join(BASE_DIR, 'linear_regression_model.pkl'), 'rb')
+)
+
+scaler = pickle.load(
+    open(os.path.join(BASE_DIR, 'scaler.pkl'), 'rb')
+)
 
 
 @app.route('/')
