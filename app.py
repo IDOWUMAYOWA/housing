@@ -6,8 +6,8 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the model
-reg_model = pickle.load(open('/home/ims24/housing/linear_regression_model.pkl', 'rb'))
-scaler = pickle.load(open('/home/ims24/housing/scaler.pkl', 'rb'))
+reg_model = pickle.load(open('/linear_regression_model.pkl', 'rb'))
+scaler = pickle.load(open('/scaler.pkl', 'rb'))
 
 
 @app.route('/')
